@@ -20,35 +20,11 @@
 
   <engines>
     <engine name="cordova" version=">=7.1.0"/>
-    <engine name="cordova-android" version=">=6.3.0"/>
   </engines>
 
   <js-module src="www/GooglePlus.js" name="GooglePlus">
     <clobbers target="window.plugins.googleplus" />
   </js-module>
-
-  <!-- android -->
-  <platform name="android">
-
-	<preference name="PLAY_SERVICES_VERSION" default="17.0.0"/>
-    <framework src="com.google.android.gms:play-services-auth:$PLAY_SERVICES_VERSION" />
-    <framework src="com.google.android.gms:play-services-identity:$PLAY_SERVICES_VERSION" />
-
-    <config-file target="res/xml/config.xml" parent="/*">
-      <feature name="GooglePlus">
-        <param name="android-package" value="nl.xservices.plugins.GooglePlus" />
-        <param name="onload" value="true" />
-      </feature>
-      <access origin="https://accounts.google.com/*" />
-    </config-file>
-
-    <config-file target="AndroidManifest.xml" parent="/manifest">
-      <uses-permission android:name="android.permission.GET_ACCOUNTS" />
-      <uses-permission android:name="android.permission.USE_CREDENTIALS" />
-    </config-file>
-
-    <source-file src="src/android/GooglePlus.java" target-dir="src/nl/xservices/plugins"/>
-  </platform>
 
   <!-- ios -->
   <platform name="ios">
